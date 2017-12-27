@@ -31,6 +31,8 @@ import {
   ForceGraphArrowLink
 } from '../src/';
 import lesMisJSON from './les-miserables.json';
+import browsers from './browsers.json';
+
 
 import './demo-styles.css';
 
@@ -41,6 +43,11 @@ function attachEvents(child) {
     onMouseOut: action(`blurred <${child.type.name} />`),
   });
 }
+
+const oneChild = [
+  <ForceGraphNode node={{ id: 'first-node'}} fill="#11939A" />,
+].map(attachEvents);
+
 
 const twoChildren = [
   <ForceGraphNode node={{ id: 'first-node' }} fill="#11939A" />,
@@ -101,6 +108,9 @@ const tenChildrenArrows = [
 ].map(attachEvents);
 
 storiesOf('<ForceGraph />', module)
+  .add('add node', () => (
+    <ForceGraph>{oneChild}</ForceGraph>
+  ))
   .add('two nodes', () => (
     <ForceGraph>{twoChildren}</ForceGraph>
   ))
@@ -166,6 +176,27 @@ storiesOf('<ForceGraph />', module)
           />
         )).map(attachEvents)}
         {lesMisJSON.links.map(link => (
+          <ForceGraphLink
+            key={`${link.source}=>${link.target}`}
+            link={{ ...link, value: 2 }}
+          />
+        )).map(attachEvents)}
+      </ForceGraph>
+    );
+  })
+  .add('add browsers graph', () => {
+    const scale = scaleCategory20();
+
+    return (
+      <ForceGraph>
+        {browsers.nodes.map(node => (
+          <ForceGraphNode
+            key={node.id}
+            fill={scale(node.group)}
+            node={{ ...node, radius: 5 }}
+          />
+        )).map(attachEvents)}
+        {browsers.links.map(link => (
           <ForceGraphLink
             key={`${link.source}=>${link.target}`}
             link={{ ...link, value: 2 }}

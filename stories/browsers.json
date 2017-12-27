@@ -1,0 +1,40 @@
+{ "nodes" : 
+    [
+        {
+            "id": "Chrome",
+            "image": "https://icons.iconarchive.com/icons/google/chrome/48/Google-Chrome-icon.png"
+        }
+            , 
+        {
+            "id": "Firefox",
+            "image": "https://icons.iconarchive.com/icons/carlosjj/mozilla/48/Firefox-icon.png"
+        }
+            , 
+        {
+            "id": "Safari",
+            "image": "https://icons.iconarchive.com/icons/johanchalibert/mac-osx-yosemite/48/safari-icon.png"
+        }   , 
+        {
+            "id": "Opera",
+            "image": "https://icons.iconarchive.com/icons/ampeross/smooth/48/Opera-icon.png"
+        }
+    ],
+    "links" : 
+    [
+        {
+            "source": "Chrome",
+            "target": "Firefox",
+            "value": 1
+        }   ,
+        {
+            "source": "Chrome",
+            "target": "Safari",
+            "value": 2
+        }   ,             
+        {
+            "source": "Chrome",
+            "target": "Opera",
+            "value": 3
+        }   
+    ]
+}
