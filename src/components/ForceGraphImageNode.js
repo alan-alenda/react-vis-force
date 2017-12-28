@@ -18,7 +18,7 @@ export default class ForceGraphArrowLink extends PureComponent {
       className: '',
       opacity: 0.6,
       stroke: '#999',
-      targetRadius: 2,
+      targetRadius: 25,
       strokeWidth: 1,
     };
   }
